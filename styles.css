@@ -1,0 +1,97 @@
+/* Estilo global */
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+h1 {
+  margin-top: 10px;
+  font-size: 2rem;
+  color: #333;
+}
+
+/* Controles: marcador, temporizador */
+#controls {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 20px 0;
+}
+
+#timer, #score {
+  font-size: 1.2rem;
+}
+
+/* Contenedor del tablero */
+#game-container {
+  display: flex;
+  flex-direction: column; /* Organizar los elementos verticalmente */
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
+/* Tablero */
+#board {
+  display: grid;
+  gap: 4px;
+  max-width: 20vw; /* Mantener tablero dentro del ancho de la pantalla */
+}
+
+/* Estilo de las celdas */
+.cell {
+  width: calc(20vw / 8); /* Reducir tamaño de celdas */
+  height: calc(20vw / 8);
+  background-color: #ddd;
+  text-align: center;
+  line-height: calc(20vw / 8); /* Alinear texto verticalmente */
+  font-size: 0.9rem; /* Reducir tamaño de texto */
+  border-radius: 3px; /* Esquinas redondeadas */
+  transition: background-color 0.3s, transform 0.2s;
+  cursor: pointer;
+}
+
+/* Celdas reveladas */
+.cell.revealed {
+  background-color: #bbb;
+  transform: scale(1.1); /* Pequeño efecto de ampliación */
+}
+
+/* Celdas marcadas como bandera */
+.cell.flag {
+  background-color: #ffa;
+}
+
+/* Celdas con minas */
+.cell.mine {
+  background-color: #f44;
+  animation: shake 0.3s ease; /* Animación al revelar una mina */
+}
+
+/* Animación para celdas con mina */
+@keyframes shake {
+  0% { transform: translate(0, 0); }
+  25% { transform: translate(-5px, 0); }
+  50% { transform: translate(5px, 0); }
+  75% { transform: translate(-5px, 0); }
+  100% { transform: translate(0, 0); }
+}
+
+/* Botón "Reiniciar" */
+#restart-btn {
+  padding: 1px 2px; /* Ajustar tamaño del botón */
+  font-size: 1rem; /* Tamaño de texto */
+  border: none;
+  border-radius: 1px;
+  background-color: #007bff;
+  color: blue;
+  cursor: pointer;
+  margin-top: 1px;
+}
+
+#restart-btn:hover {
+  background-color: #0056b3;
+}
